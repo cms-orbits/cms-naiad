@@ -49,20 +49,32 @@ spring:
 
 
  
-### Email sending test
+### Email testing
 
-The application can be tested sending a new message to the RabbitMQ Server using a terminale
+The application can be tested sending a new message to the RabbitMQ Server using a terminal
 
 ```bash
 $ rabbitmqadmin publish exchange=cmsExchange routing_key=user.created \
     properties='{"content_type":"application/json"}' \
-    payload='{"name": "Joel Santos", \
-    "to":"joelgtsantos@gmail.com", \ 
+    payload='{"name": "CMS USER", \
+    "to":"someotheremail@gmail.com", \ 
     "from":"cms@gmail.com", \
     "body":"Welcome to CMS Challenge", \
-    "subject":"Signup CMS"}'
+    "subject":"Signing up CMS"}'
     
 ```
+
+### Running a docker image 
+
+The application runs by default on port 8084 but such value can be overridden using the following syntax.
+
+```bash
+$ docker run -t -i -e SERVER_PORT='8084' joelgtsantos/cms-naiad:latest
+
+```
+
+
+
 
  
  
